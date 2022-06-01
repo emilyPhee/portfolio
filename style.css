@@ -6,16 +6,16 @@
   --color-white: #ffffff;
   --color-light-white: #eeeeee;
   --color-dark-white: #bdbdbd;
-  --color-light-lilac: rgb(230, 199, 243);
-  --color-lilac: #c8a2c8;
-  --color-dark-lilac: #b785b7;
+  --color-light-lilac: rgb(223, 214, 241);
+  --color-lilac: #d2c6ed;
+  --color-dark-lilac: #c7b7ec;
   --color-black: #1e1e1e;
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
-  --color-blue: #74add6;
-  --color-light-blue: #c0d3e2;
-  --color-dark-blue: #638299;
+  --color-blue: #9ab6f4;
+  --color-light-blue: #dae4f3;
+  --color-dark-blue: #567df1;
 
   /* Font Size */
   --font-large: 48px;
@@ -70,6 +70,7 @@ h1 {
   font-weight: var(--weight-bold);
   color: var(--color-black);
   margin: 16px 0;
+  padding: 35px 0;
 }
 
 h2 {
@@ -95,6 +96,7 @@ p {
 /* Navbar */
 #navbar {
   position: fixed;
+  z-index: 1;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -188,6 +190,10 @@ p {
 }
 
 /* About */
+.about__introduction {
+  font-size: 22px;
+  line-height: 30px;
+}
 .about__majors {
   display: flex;
   justify-content: space-between;
@@ -335,7 +341,7 @@ p {
 }
 
 .category__count {
-  background-color: var(--color-light-lilac);
+  background-color: var(--color-blue);
   border-radius: 50%;
   color: var(--color-white);
   width: 24px;
@@ -477,7 +483,7 @@ p {
 
 .contact__links i:hover {
   transform: scale(1.1);
-  color: var(--color-light-lilac);
+  color: var(--color-blue);
 }
 
 /* For below 768px screen width */
