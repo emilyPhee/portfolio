@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Emily's Portfolio</title>
     <meta
       name="description"
@@ -17,7 +18,7 @@
     ></script>
 
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,262 +27,271 @@
     />
   </head>
   <body>
-    <!-- Navbar -->
-
-    <nav id="navbar">
-      <div class="navbar__logo">
-        <i class="fa-solid fa-moon"></i>
-        <a href="#">Emily</a>
-      </div>
-
-      <ul class="navbar__menu">
-        <li class="navbar__menu__item">Home</li>
-        <li class="navbar__menu__item">About</li>
-        <li class="navbar__menu__item">Skills</li>
-        <li class="navbar__menu__item">My work</li>
-        <li class="navbar__menu__item">Testimonial</li>
-        <li class="navbar__menu__item">Contact</li>
-      </ul>
-
-      <!-- Toggle button -->
-      <button class="navbar__toggle-btn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </nav>
-
-    <!-- Home -->
-    <section id="home">
-      <img
-        src="imgs/profile.JPG"
-        class="home__avatar"
-        alt="Emily's profile photo"
-      />
-      <i class="fa-solid fa-hand-wave"></i>
-
-      <h1 class="home__title">Hello, <br />I'm Emily</h1>
-      <h2 class="home__description">
-        Aspiring front-end developer currently residing in California
-      </h2>
-      <button class="home__contact">Contact Me</button>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section section__container">
-      <h1>About me</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
-        beatae recusandae eos consequuntur incidunt blanditiis hic suscipit
-        inventore at quos doloremque pariatur praesentium. Dolores ad ut vel
-        amet ipsam esse!
-      </p>
-      <div class="about__majors">
-        <div class="major">
-          <div class="major__icon"><i class="fa-brands fa-html5"></i></div>
-          <h2 class="major__title">HTML</h2>
-
-          <div class="major__description">
-            Structure a web page and<br/ > its content
+    <div id="page-body">
+      <div class="page-body">
+        <!-- Navbar -->
+        <nav id="navbar">
+          <div class="navbar__logo">
+            <i class="fa-solid fa-moon"></i>
+            <a href="#">Emily</a>
           </div>
-        </div>
 
-        <div class="major">
-          <div class="major__icon"><i class="fa-brands fa-css3"></i></div>
-          <h2 class="major__title">CSS</h2>
+          <ul class="navbar__menu">
+            <li class="navbar__menu__item active">Home</li>
+            <li class="navbar__menu__item">About</li>
+            <li class="navbar__menu__item">Skills</li>
+            <li class="navbar__menu__item">My work</li>
+            <li class="navbar__menu__item">Testimonial</li>
+            <li class="navbar__menu__item">Contact</li>
+          </ul>
 
-          <div class="major__description">Stylesheet language</div>
-        </div>
+          <!-- Toggle button -->
+          <button class="navbar__toggle-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
 
-        <div class="major">
-          <div class="major__icon"><i class="fa-brands fa-js-square"></i></div>
-          <h2 class="major__title">JavaScript</h2>
-
-          <div class="major__description">
-            Programming language <br />for web dynamic and interactions
-          </div>
-        </div>
-      </div>
-      <div class="about__jobs">
-        <div class="job">
+        <!-- Home -->
+        <section id="home">
           <img
-            src="imgs/jobs/logo-uci.png"
-            width="300"
-            alt="uci"
-            class="job__logo"
+            src="imgs/profile.JPG"
+            class="home__avatar"
+            alt="Emily's profile photo"
           />
-          <div class="job__description">
-            <p class="job__name">
-              University of California Irvine | Informatics
+          <i class="fa-solid fa-hand-wave"></i>
+
+          <h1 class="home__title">Hello, <br />I'm Emily</h1>
+          <h2 class="home__description">
+            Aspiring front-end developer currently residing in California
+          </h2>
+          <button class="home__contact">Contact Me</button>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section section__container">
+          <h1>About me</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+            beatae recusandae eos consequuntur incidunt blanditiis hic suscipit
+            inventore at quos doloremque pariatur praesentium. Dolores ad ut vel
+            amet ipsam esse!
+          </p>
+          <div class="about__majors">
+            <div class="major">
+              <div class="major__icon"><i class="fa-brands fa-html5"></i></div>
+              <h2 class="major__title">HTML</h2>
+
+              <div class="major__description">
+                Structure a web page and<br/ > its content
+              </div>
+            </div>
+
+            <div class="major">
+              <div class="major__icon"><i class="fa-brands fa-css3"></i></div>
+              <h2 class="major__title">CSS</h2>
+
+              <div class="major__description">Stylesheet language</div>
+            </div>
+
+            <div class="major">
+              <div class="major__icon">
+                <i class="fa-brands fa-js-square"></i>
+              </div>
+              <h2 class="major__title">JavaScript</h2>
+
+              <div class="major__description">
+                Programming language <br />for web dynamic and interactions
+              </div>
+            </div>
+          </div>
+          <div class="about__jobs">
+            <div class="job">
+              <img
+                src="imgs/jobs/logo-uci.png"
+                width="300"
+                alt="uci"
+                class="job__logo"
+              />
+              <div class="job__description">
+                <p class="job__name">
+                  University of California Irvine | Informatics
+                </p>
+                <p class="job__period">2019 September - 2022 June</p>
+              </div>
+            </div>
+            <div class="job"></div>
+          </div>
+        </section>
+        <!-- Skills -->
+        <section id="skills" class="section">
+          <div class="section__container">
+            <h1>Skills</h1>
+            <h2>Skills & Attributes</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet
+              impedit porro labore consequuntur necessitatibus at quaerat modi
+              amet molestias eligendi!
             </p>
-            <p class="job__period">2019 September - 2022 June</p>
-          </div>
-        </div>
-        <div class="job"></div>
-      </div>
-    </section>
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="section__container">
-        <h1>Skills</h1>
-        <h2>Skills & Attributes</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet
-          impedit porro labore consequuntur necessitatibus at quaerat modi amet
-          molestias eligendi!
-        </p>
 
-        <div class="skillset">
-          <div class="skillset__left">
-            <h3 class="skillset__title">Skills</h3>
-            <div class="skill">
-              <div class="skill__description">
-                <span>HTML</span>
-                <span>99%</span>
-              </div>
-              <div class="skill__bar">
-                <div class="skill__value" style="width: 99%"></div>
-              </div>
-            </div>
+            <div class="skillset">
+              <div class="skillset__left">
+                <h3 class="skillset__title">Skills</h3>
+                <div class="skill">
+                  <div class="skill__description">
+                    <span>HTML</span>
+                    <span>99%</span>
+                  </div>
+                  <div class="skill__bar">
+                    <div class="skill__value" style="width: 99%"></div>
+                  </div>
+                </div>
 
-            <div class="skill">
-              <div class="skill__description">
-                <span>CSS</span>
-                <span>80%</span>
-              </div>
-              <div class="skill__bar">
-                <div class="skill__value" style="width: 80%"></div>
-              </div>
-            </div>
+                <div class="skill">
+                  <div class="skill__description">
+                    <span>CSS</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="skill__bar">
+                    <div class="skill__value" style="width: 80%"></div>
+                  </div>
+                </div>
 
-            <div class="skill">
-              <div class="skill__description">
-                <span>JavaScript</span>
-                <span>50%</span>
-              </div>
-              <div class="skill__bar">
-                <div class="skill__value" style="width: 50%"></div>
-              </div>
-            </div>
+                <div class="skill">
+                  <div class="skill__description">
+                    <span>JavaScript</span>
+                    <span>50%</span>
+                  </div>
+                  <div class="skill__bar">
+                    <div class="skill__value" style="width: 50%"></div>
+                  </div>
+                </div>
 
-            <div class="skill">
-              <div class="skill__description">
-                <span>React</span>
-                <span>30%</span>
-              </div>
-              <div class="skill__bar">
-                <div class="skill__value" style="width: 30%"></div>
-              </div>
-            </div>
+                <div class="skill">
+                  <div class="skill__description">
+                    <span>React</span>
+                    <span>30%</span>
+                  </div>
+                  <div class="skill__bar">
+                    <div class="skill__value" style="width: 30%"></div>
+                  </div>
+                </div>
 
-            <div class="skill">
-              <div class="skill__description">
-                <span>SASS</span>
-                <span>20%</span>
+                <div class="skill">
+                  <div class="skill__description">
+                    <span>SASS</span>
+                    <span>20%</span>
+                  </div>
+                  <div class="skill__bar">
+                    <div class="skill__value" style="width: 20%"></div>
+                  </div>
+                </div>
+                <div class="skill">
+                  <div class="skill__description">
+                    <span>TypeScript</span>
+                    <span>0%</span>
+                  </div>
+                  <div class="skill__bar">
+                    <div class="skill__value" style="width: 0%"></div>
+                  </div>
+                </div>
               </div>
-              <div class="skill__bar">
-                <div class="skill__value" style="width: 20%"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <div class="skill__description">
-                <span>TypeScript</span>
-                <span>0%</span>
-              </div>
-              <div class="skill__bar">
-                <div class="skill__value" style="width: 0%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skillset__right">
-            <div class="tools">
-              <h3 class="skillset__title">Tools</h3>
-              <ul class="tools__list">
-                <li><span>Visual Studio Code</span></li>
-                <li><span>Figma</span></li>
-                <li><span>Sketch app</span></li>
-                <li><span>Terminal</span></li>
-                <!-- <li><span></span></li> -->
-              </ul>
-            </div>
-            <div class="etc">
-              <h3 class="skillset__title">Etc</h3>
-              <ul class="etc__list">
-                <li><span>Git</span></li>
-                <!-- <li><span></span></li>
+              <div class="skillset__right">
+                <div class="tools">
+                  <h3 class="skillset__title">Tools</h3>
+                  <ul class="tools__list">
+                    <li><span>Visual Studio Code</span></li>
+                    <li><span>Figma</span></li>
+                    <li><span>Sketch app</span></li>
+                    <li><span>Terminal</span></li>
+                    <!-- <li><span></span></li> -->
+                  </ul>
+                </div>
+                <div class="etc">
+                  <h3 class="skillset__title">Etc</h3>
+                  <ul class="etc__list">
+                    <li><span>Git</span></li>
+                    <!-- <li><span></span></li>
               <li><span></span></li> -->
-              </ul>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Work -->
-    <section id="work" class="section">
-      <h1>My Work</h1>
-      <h3>Projects</h3>
-      <div class="work__categories">
-        <button class="category__btn active">
-          All<span class="category__count">3</span>
-        </button>
-        <button class="category__btn">
-          JavaScript<span class="category__count">3</span>
-        </button>
-        <button class="category__btn">
-          React<span class="category__count">0</span>
-        </button>
-        <button class="category__btn">
-          Mobile<span class="category__count">0</span>
-        </button>
-      </div>
-
-      <div class="work__projects">
-        <a
-          href="https://github.com/emilyPhee/Etch-a-Sketch"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgs/projects/etch-a-sketch.png"
-            alt="sketch game"
-          />
-          <div class="project__description">
-            <h3>Etch-a-Sketch Game</h3>
-            <span>Sketch app with HTML, CSS and JavaScript</span>
+        <!-- Work -->
+        <section id="work" class="section">
+          <h1>My Work</h1>
+          <h3>Projects</h3>
+          <div class="work__categories">
+            <button class="category__btn active">
+              All<span class="category__count">3</span>
+            </button>
+            <button class="category__btn">
+              JavaScript<span class="category__count">3</span>
+            </button>
+            <button class="category__btn">
+              React<span class="category__count">0</span>
+            </button>
+            <button class="category__btn">
+              Mobile<span class="category__count">0</span>
+            </button>
           </div>
-        </a>
 
-        <a
-          href="https://github.com/emilyPhee/rock-paper-scissors"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgs/projects/rock-paper-scissors-game.png"
-            alt=""
-          />
-          <div class="project__description">
-            <h3>Rock Paper Scissors</h3>
-            <span>Rock Paper Scissors game with HTML, CSS and JavaScript</span>
-          </div>
-        </a>
+          <div class="work__projects">
+            <a
+              href="https://github.com/emilyPhee/Etch-a-Sketch"
+              class="project"
+              target="blank"
+            >
+              <img
+                class="project__img"
+                src="imgs/projects/etch-a-sketch.png"
+                alt="sketch game"
+              />
+              <div class="project__description">
+                <h3>Etch-a-Sketch Game</h3>
+                <span>Sketch app with HTML, CSS and JavaScript</span>
+              </div>
+            </a>
 
-        <a
-          href="https://github.com/emilyPhee/I-Do-Tasks"
-          class="project"
-          target="blank"
-        >
-          <img class="project__img" src="imgs/projects/I-do-tasks.png" alt="" />
-          <div class="project__description">
-            <h3>I Do Tasks</h3>
-            <span>To do list app with HTML, CSS and JavaScript</span>
+            <a
+              href="https://github.com/emilyPhee/rock-paper-scissors"
+              class="project"
+              target="blank"
+            >
+              <img
+                class="project__img"
+                src="imgs/projects/rock-paper-scissors-game.png"
+                alt=""
+              />
+              <div class="project__description">
+                <h3>Rock Paper Scissors</h3>
+                <span
+                  >Rock Paper Scissors game with HTML, CSS and JavaScript</span
+                >
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/emilyPhee/I-Do-Tasks"
+              class="project"
+              target="blank"
+            >
+              <img
+                class="project__img"
+                src="imgs/projects/I-do-tasks.png"
+                alt=""
+              />
+              <div class="project__description">
+                <h3>I Do Tasks</h3>
+                <span>To do list app with HTML, CSS and JavaScript</span>
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-    </section>
-    <!-- Testimonials -->
-    <!-- <section id="testimonials" class="section">
+        </section>
+        <!-- Testimonials -->
+        <!-- <section id="testimonials" class="section">
       <h1>Testimonials</h1>
       <h3>See what they say about me</h3>
       <div class="testimonials">
@@ -321,21 +331,24 @@
         </div>
       </div>
     </section> -->
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <h1 class="contact__title">Let's talk</h1>
-      <h2 class="contact__email">ephee@uci.edu</h2>
-      <div class="contact__links">
-        <a href="https://github.com/emilyPhee" target="blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-        <a
-          href="https://www.linkedin.com/in/emily-phee-1056821b9/"
-          target="blank"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
+        <!-- Contact -->
+        <section id="contact" class="section">
+          <h1 class="contact__title">Let's talk</h1>
+          <h2 class="contact__email">ephee@uci.edu</h2>
+          <div class="contact__links">
+            <a href="https://github.com/emilyPhee" target="blank"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/emily-phee-1056821b9/"
+              target="blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </div>
+          <p class="contact__rights">2022 Emily Phee - All rights reserved</p>
+        </section>
       </div>
-      <p class="contact__rights">2022 Emily Phee - All rights reserved</p>
-    </section>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

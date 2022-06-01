@@ -94,12 +94,21 @@ p {
 
 /* Navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-lilac);
+  /* background-color: var(--color-lilac); */
+  background-color: transparent;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+#navbar.navbar--dark {
+  background-color: var(--color-lilac);
+  padding: 8px;
 }
 
 .navbar__menu {
@@ -109,7 +118,7 @@ p {
 .navbar__logo {
   font-family: 'Dancing Script', cursive;
   font-size: var(--font-medium);
-  /* font-weight: var(--weight-semi-bold); */
+  font-weight: var(--weight-semi-bold);
 }
 
 .navbar__menu__item {
@@ -140,6 +149,7 @@ p {
 #home {
   background: url('imgs/home-background.png') center/cover no-repeat;
   padding: 40px;
+  padding-top: 130px;
   text-align: center;
 }
 
