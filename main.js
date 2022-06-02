@@ -19,19 +19,13 @@ const navbarMenuItems = document.querySelectorAll('.navbar__menu__item');
 navbarMenu.addEventListener('click', event => {
   const link = event.target.dataset.link;
   if (link == null) return;
-
-  const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest',
-  });
+  scrollIntoView(link);
 });
 
+// Handle click on "Contact me" button on home
 const homeContactBtn = document.querySelector('.home__contact');
-const contact = document.getElementById('contact');
 homeContactBtn.addEventListener('click', () => {
-  contact.scrollIntoView();
+  scrollIntoView('#contact');
 });
 
 navbarMenuItems.forEach(item => {
@@ -41,8 +35,26 @@ navbarMenuItems.forEach(item => {
   });
 });
 
-const removeClassName = () => {
+// Make home transparent when it is scrolling
+const homeContainer = document.querySelector('.home__container');
+const homeHeight = homeContainer.getBoundingClientRect().height;
+
+document.addEventListener('scroll', () => {
+  const scrollYHeight = window.scrollY;
+  homeContainer.style.opacity = `${1 - scrollYHeight / homeHeight}`;
+});
+
+function removeClassName() {
   navbarMenuItems.forEach(item => {
     item.classList.remove('active');
   });
-};
+}
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest',
+  });
+}
