@@ -483,7 +483,6 @@ p {
 
 .contact__links i:hover {
   transform: scale(1.1);
-  color: var(--color-blue);
 }
 
 /* For below 768px screen width */

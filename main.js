@@ -12,16 +12,24 @@ document.addEventListener('scroll', () => {
   }
 });
 
-const homeContactBtn = document.querySelector('.home__contact');
+// Handle scrolling when tapping on the navbar menu
+const navbarMenu = document.querySelector('.navbar__menu');
 const navbarMenuItems = document.querySelectorAll('.navbar__menu__item');
 
-// Sections
-const home = document.getElementById('home');
-const about = document.getElementById('about');
-const skills = document.getElementById('skills');
-const work = document.getElementById('work');
-const contact = document.getElementById('contact');
+navbarMenu.addEventListener('click', event => {
+  const link = event.target.dataset.link;
+  if (link == null) return;
 
+  const scrollTo = document.querySelector(link);
+  scrollTo.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest',
+  });
+});
+
+const homeContactBtn = document.querySelector('.home__contact');
+const contact = document.getElementById('contact');
 homeContactBtn.addEventListener('click', () => {
   contact.scrollIntoView();
 });
@@ -30,48 +38,6 @@ navbarMenuItems.forEach(item => {
   item.addEventListener('click', () => {
     removeClassName();
     item.classList.add('active');
-
-    // check which section should go
-    const menuName = item.innerHTML.toLowerCase();
-    if (menuName.includes(home.id)) {
-      home.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
-
-    if (menuName.includes(about.id)) {
-      about.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
-
-    if (menuName.includes(skills.id)) {
-      skills.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
-
-    if (menuName.includes(work.id)) {
-      work.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
-
-    if (menuName.includes(contact.id)) {
-      contact.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
   });
 });
 
