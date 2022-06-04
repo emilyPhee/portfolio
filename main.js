@@ -44,6 +44,20 @@ document.addEventListener('scroll', () => {
   homeContainer.style.opacity = `${1 - scrollYHeight / homeHeight}`;
 });
 
+// Handle Arrow up button
+const arrowUpBtn = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUpBtn.classList.add('visible');
+  } else {
+    arrowUpBtn.classList.remove('visible');
+  }
+});
+
+arrowUpBtn.addEventListener('click', () => {
+  scrollIntoView('#home');
+});
+
 function removeClassName() {
   navbarMenuItems.forEach(item => {
     item.classList.remove('active');
