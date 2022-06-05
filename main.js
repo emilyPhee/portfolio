@@ -30,7 +30,7 @@ homeContactBtn.addEventListener('click', () => {
 
 navbarMenuItems.forEach(item => {
   item.addEventListener('click', () => {
-    removeClassName();
+    removeClassName(navbarMenuItems, 'active');
     item.classList.add('active');
   });
 });
@@ -58,9 +58,52 @@ arrowUpBtn.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
-function removeClassName() {
-  navbarMenuItems.forEach(item => {
-    item.classList.remove('active');
+// Filter selected category on projects
+const projects = document.querySelectorAll('.project');
+const categoryBtns = document.querySelectorAll('.category__btn');
+
+categoryBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    removeClassName(projects, 'display');
+    removeClassName(categoryBtns, 'active');
+
+    btn.classList.add('active');
+
+    displayWork();
+  });
+});
+
+// Set initial Projects display (all)
+displayWork();
+
+function displayWork() {
+  categoryBtns.forEach(btn => {
+    if (btn.classList.contains('active')) {
+      const activeBtn = btn.innerText.toLowerCase().slice(0, -1);
+
+      // Select everything when all button clicks
+      if (activeBtn === 'all') {
+        projects.forEach(project => {
+          project.classList.add('display');
+        });
+      }
+
+      // Add class name according to category & display
+      exportProjectCategory(activeBtn).forEach(category => {
+        category.classList.add('display');
+      });
+    }
+  });
+}
+
+function exportProjectCategory(category) {
+  const projectsCategory = document.querySelectorAll(`[data-${category}]`);
+  return projectsCategory;
+}
+
+function removeClassName(array, className) {
+  array.forEach(item => {
+    item.classList.remove(className);
   });
 }
 
