@@ -61,15 +61,22 @@ arrowUpBtn.addEventListener('click', () => {
 // Filter selected category on projects
 const projects = document.querySelectorAll('.project');
 const categoryBtns = document.querySelectorAll('.category__btn');
+const projectContainer = document.querySelector('.work__projects');
+const workBtnContainer = document.querySelector('.work__categories');
 
 categoryBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    removeClassName(projects, 'display');
-    removeClassName(categoryBtns, 'active');
+    projectContainer.classList.add('anim-out');
 
-    btn.classList.add('active');
+    setTimeout(() => {
+      removeClassName(projects, 'display');
+      removeClassName(categoryBtns, 'active');
 
-    displayWork();
+      btn.classList.add('active');
+
+      displayWork();
+      projectContainer.classList.remove('anim-out');
+    }, 300);
   });
 });
 
