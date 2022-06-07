@@ -19,20 +19,21 @@ const navbarMenuItems = document.querySelectorAll('.navbar__menu__item');
 navbarMenu.addEventListener('click', event => {
   const link = event.target.dataset.link;
   if (link == null) return;
+
+  navbarMenu.classList.remove('open');
   scrollIntoView(link);
+});
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // Handle click on "Contact me" button on home
 const homeContactBtn = document.querySelector('.home__contact');
 homeContactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
-});
-
-navbarMenuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    removeClassName(navbarMenuItems, 'active');
-    item.classList.add('active');
-  });
 });
 
 // Make home transparent when it is scrolling
@@ -62,12 +63,12 @@ arrowUpBtn.addEventListener('click', () => {
 const projects = document.querySelectorAll('.project');
 const categoryBtns = document.querySelectorAll('.category__btn');
 const projectContainer = document.querySelector('.work__projects');
-const workBtnContainer = document.querySelector('.work__categories');
 
 categoryBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     projectContainer.classList.add('anim-out');
 
+    // Remove animation out class after 300ms to delay to show the filtered projects
     setTimeout(() => {
       removeClassName(projects, 'display');
       removeClassName(categoryBtns, 'active');
