@@ -62,6 +62,7 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  padding: 0;
 }
 
 /* Typography */
@@ -172,6 +173,10 @@ p {
   padding: 8px 12px;
   border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
+}
+
+.home__contact:hover {
+  background-color: var(--color-blue);
 }
 
 /* Section common */
@@ -324,6 +329,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category__btn.active,
@@ -346,10 +352,9 @@ p {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  /* margin: 0 4px; */
-  position: relative;
+  position: absolute;
+  right: 16px;
   top: -20px;
-  left: 4px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -478,8 +483,20 @@ p {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font Size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-medium);
   }
 
   #navbar {
@@ -503,24 +520,36 @@ p {
     display: block;
   }
 
+  .section {
+    padding: 16px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px 0;
+  }
   .project {
     flex-grow: 1;
   }
-
-  .testimonial_avatar {
-    width: 80px;
-    height: 80px;
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    bottom: 16px;
+    right: 16px;
   }
 }

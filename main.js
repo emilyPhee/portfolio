@@ -87,19 +87,19 @@ displayWork();
 function displayWork() {
   categoryBtns.forEach(btn => {
     if (btn.classList.contains('active')) {
-      const activeBtn = btn.innerText.toLowerCase().slice(0, -1);
+      const activeBtn = btn.innerText.toLowerCase().trim().slice(0, -1);
 
       // Select everything when all button clicks
-      if (activeBtn === 'all') {
+      if (activeBtn.trim() === 'all') {
         projects.forEach(project => {
           project.classList.add('display');
         });
+      } else {
+        // Add class name according to category & display
+        exportProjectCategory(activeBtn).forEach(category => {
+          category.classList.add('display');
+        });
       }
-
-      // Add class name according to category & display
-      exportProjectCategory(activeBtn).forEach(category => {
-        category.classList.add('display');
-      });
     }
   });
 }
