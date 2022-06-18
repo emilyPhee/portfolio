@@ -24,6 +24,32 @@ navbarMenu.addEventListener('click', event => {
   scrollIntoView(link);
 });
 
+// Scrolling and select navbar menu
+const sections = document.querySelectorAll('.section');
+const datas = document.querySelectorAll('[data-link]');
+
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const idName = entry.target.id;
+
+      datas.forEach(data => {
+        const linkName = data.dataset.link;
+
+        if (linkName.includes(idName)) {
+          data.classList.add('select');
+        }
+      });
+    } else {
+      removeClassName(datas, 'select');
+    }
+  });
+};
+
+const observer = new IntersectionObserver(callback, { threshold: 0.7 });
+
+sections.forEach(section => observer.observe(section));
+
 // Navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
