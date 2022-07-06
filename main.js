@@ -24,32 +24,6 @@ navbarMenu.addEventListener('click', event => {
   scrollIntoView(link);
 });
 
-// Scrolling and select navbar menu
-const sections = document.querySelectorAll('.section');
-const datas = document.querySelectorAll('[data-link]');
-
-const callback = (entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const idName = entry.target.id;
-
-      datas.forEach(data => {
-        const linkName = data.dataset.link;
-
-        if (linkName.includes(idName)) {
-          data.classList.add('select');
-        }
-      });
-    } else {
-      removeClassName(datas, 'select');
-    }
-  });
-};
-
-const observer = new IntersectionObserver(callback, { threshold: 0.7 });
-
-sections.forEach(section => observer.observe(section));
-
 // Navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
@@ -148,4 +122,63 @@ function scrollIntoView(selector) {
     block: 'start',
     inline: 'nearest',
   });
+}
+
+// Scrolling and select navbar menu
+// 1. Get all section element and navabr menu items
+// 2. use IntersectionObserver, observe all sections
+// 3. All visible sections' menu items make active
+
+const sectionIds = ['#home', '#about', '#skills', '#work', '#contact'];
+const sections = sectionIds.map(id => document.querySelector(`${id}`));
+const navbarItems = sectionIds.map(id =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+let selectedNavItem = navbarItems[0];
+
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    let selectedIndex;
+    // Check if its bottom of the page
+    window.onscroll = e => {
+      console.log(window.scrollY);
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        selectedIndex = navbarItems.length - 1;
+        selectedNavItem = handleSelectedNavItem(selectedNavItem, selectedIndex);
+      } else {
+        if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+          const index = sectionIds.indexOf(`#${entry.target.id}`);
+
+          // Scrolling downward (sections going up)
+          if (entry.boundingClientRect.y < 0) {
+            // when it goes down, the user interested in next content (++)
+            selectedIndex = index + 1;
+          } else {
+            // Scrolling upward (sections going down)
+            // when it goes up, the user interested in the previous content (--)
+            selectedIndex = index - 1;
+          }
+          selectedNavItem = handleSelectedNavItem(
+            selectedNavItem,
+            selectedIndex
+          );
+        }
+      }
+    };
+  });
+};
+
+const options = { root: null, rootMargin: '0px', threshold: 0.3 };
+
+const observer = new IntersectionObserver(callback, options);
+
+sections.forEach(section => observer.observe(section));
+
+function handleSelectedNavItem(selectedNavItem, selectedIndex) {
+  selectedNavItem.classList.remove('select');
+  selectedNavItem = navbarItems[selectedIndex];
+  selectedNavItem.classList.add('select');
+
+  return selectedNavItem;
 }
