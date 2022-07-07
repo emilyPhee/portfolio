@@ -115,15 +115,6 @@ function removeClassName(array, className) {
   });
 }
 
-function scrollIntoView(selector) {
-  const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest',
-  });
-}
-
 // Scrolling and select navbar menu
 // 1. Get all section element and navabr menu items
 // 2. use IntersectionObserver, observe all sections
@@ -136,36 +127,39 @@ const navbarItems = sectionIds.map(id =>
 );
 
 let selectedNavItem = navbarItems[0];
+let selectedIndex = 0;
+
+function handleSelectedNavItem(selected) {
+  selectedNavItem.classList.remove('select');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('select');
+}
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest',
+  });
+  handleSelectedNavItem(navbarItems[sectionIds.indexOf(selector)]);
+}
 
 const callback = (entries, observer) => {
   entries.forEach(entry => {
-    let selectedIndex;
-    // Check if its bottom of the page
-    window.onscroll = e => {
-      console.log(window.scrollY);
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        selectedIndex = navbarItems.length - 1;
-        selectedNavItem = handleSelectedNavItem(selectedNavItem, selectedIndex);
-      } else {
-        if (!entry.isIntersecting && entry.intersectionRatio > 0) {
-          const index = sectionIds.indexOf(`#${entry.target.id}`);
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
 
-          // Scrolling downward (sections going up)
-          if (entry.boundingClientRect.y < 0) {
-            // when it goes down, the user interested in next content (++)
-            selectedIndex = index + 1;
-          } else {
-            // Scrolling upward (sections going down)
-            // when it goes up, the user interested in the previous content (--)
-            selectedIndex = index - 1;
-          }
-          selectedNavItem = handleSelectedNavItem(
-            selectedNavItem,
-            selectedIndex
-          );
-        }
+      // Scrolling downward (sections going up)
+      if (entry.boundingClientRect.y < 0) {
+        // when it goes down, the user interested in next content (++)
+        selectedIndex = index + 1;
+      } else {
+        // Scrolling upward (sections going down)
+        // when it goes up, the user interested in the previous content (--)
+        selectedIndex = index - 1;
       }
-    };
+    }
   });
 };
 
@@ -175,10 +169,18 @@ const observer = new IntersectionObserver(callback, options);
 
 sections.forEach(section => observer.observe(section));
 
-function handleSelectedNavItem(selectedNavItem, selectedIndex) {
-  selectedNavItem.classList.remove('select');
-  selectedNavItem = navbarItems[selectedIndex];
-  selectedNavItem.classList.add('select');
+window.addEventListener('wheel', () => {
+  // Check if its top of the page
+  if (window.scrollY === 0) {
+    selectedIndex = 0;
+  } else if (
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight
+  ) {
+    // Check if its bottom of the page
+    selectedIndex = navbarItems.length - 1;
+  }
 
-  return selectedNavItem;
-}
+  // selectedNavItem = handleSelectedNavItem(selectedNavItem, selectedIndex);
+  handleSelectedNavItem(navbarItems[selectedIndex]);
+});

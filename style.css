@@ -72,6 +72,7 @@ h1 {
   color: var(--color-black);
   margin: 16px 0;
   padding: 35px 0;
+  letter-spacing: 0.2rem;
 }
 
 h2 {
@@ -92,6 +93,10 @@ p {
   font-weight: var(--font-regular);
   color: var(--color-black);
   margin: 4px 0;
+}
+
+.section-title {
+  color: var(--color-dark-grey);
 }
 
 /* Navbar */
@@ -130,7 +135,7 @@ p {
   cursor: pointer;
   border-radius: var(--size-border-radius);
   border: 1px solid transparent;
-  transition: all var(--animation-duration) ease-in-out;
+  /* transition: all var(--animation-duration) ease-in-out; */
 }
 
 .navbar__menu__item:hover {
@@ -140,7 +145,7 @@ p {
 .navbar__menu__item.select {
   border-color: var(--color-white);
 
-  transition: all var(--animation-duration) ease-in-out;
+  /* transition: all var(--animation-duration) ease-in-out; */
 }
 
 .navbar__toggle-btn {
@@ -202,11 +207,28 @@ p {
 .about__introduction {
   font-size: 22px;
   line-height: 30px;
+  color: var(--color-grey);
 }
+
 .about__majors {
   display: flex;
   justify-content: space-between;
   margin: 80px 0;
+}
+
+.major:nth-child(even) {
+  background-color: var(--color-light-blue);
+}
+
+.major {
+  border: 2px solid var(--color-light-blue);
+  width: 15rem;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.major__title {
+  color: var(--color-grey);
 }
 
 .major__icon {
@@ -215,9 +237,7 @@ p {
   line-height: 170px;
   font-size: 70px;
   margin: auto;
-  color: var(--color-blue);
-  border: 1px solid var(--color-blue);
-  border-radius: 50%;
+  color: var(--color-grey);
   margin-bottom: 16px;
 }
 
@@ -226,12 +246,8 @@ p {
 }
 
 .major__icon:hover i {
-  color: var(--color-lilac);
+  color: var(--color-blue);
   transform: rotate(-30deg) scale(1.1);
-}
-.major__title,
-.major__description {
-  color: var(--color-dark-grey);
 }
 
 .major__description {
