@@ -554,6 +554,7 @@ p {
     text-align: center;
     width: 100%;
     display: none;
+    padding: 16px;
   }
 
   .navbar__menu.open {
